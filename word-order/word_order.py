@@ -10,13 +10,10 @@ words = lines[1:]
 index = collections.OrderedDict()
 
 for i, word in enumerate(words):
-    if word in index:
-        index[word] += 1
-    else:
-        index[word] = 1
+    index[word] = index[word] + 1 if word in index else 1
 
-print(len(index))
+distict = len(index)
+counts = [str(index.popitem(last=False)[1]) for i in range(distict)]
 
-counts = [str(index.popitem(last=False)[1]) for i in range(len(index))]
-# print(counts)
+print(distict)
 print(' '.join(counts))
